@@ -16,3 +16,9 @@ Share more than just text; our app supports multimedia files such as images, vid
 Create and join group chats to facilitate collaboration and teamwork. Whether you're working on a project with colleagues or staying connected with friends, group chats make it easy to communicate with multiple people simultaneously.
 6. Notification Preferences
 Customize your notification settings to stay informed without being overwhelmed. Choose how and when you receive alerts, ensuring you never miss an important message.
+7. Emojis and Stickers
+Express yourself with a wide range of emojis and stickers. Add a touch of fun and personality to your conversations with our extensive library of expressive icons.
+8. Search Functionality
+Easily find past conversations, files, or specific messages with our robust search functionality. Never lose track of important information again.
+9. Security and Privacy
+We prioritize the security and privacy of your conversations. Our app employs robust encryption measures to protect your data, ensuring that your messages remain private and secure.
