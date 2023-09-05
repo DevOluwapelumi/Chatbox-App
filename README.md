@@ -8,3 +8,7 @@ Key Features:
 The Chatbox App provides instant, real-time messaging capabilities, ensuring that users can engage in seamless and swift conversations. Messages are delivered instantly, making it ideal for both personal and professional communication.
 2. User-Friendly Interface
 Our app boasts a clean and intuitive user interface, making it easy for users of all levels of technical expertise to navigate effortlessly. Whether you're a tech-savvy professional or a casual user, you'll find our app user-friendly and accessible.
+3. Customizable Themes
+Personalize your chat experience by choosing from a variety of themes and color schemes. Make the app your own by selecting a theme that reflects your unique style and preferences.
+4. Multimedia Support
+Share more than just text; our app supports multimedia files such as images, videos, and documents. Collaborate effectively by sharing files directly within the chat interface.
