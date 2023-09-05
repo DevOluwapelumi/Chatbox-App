@@ -22,3 +22,7 @@ Express yourself with a wide range of emojis and stickers. Add a touch of fun an
 Easily find past conversations, files, or specific messages with our robust search functionality. Never lose track of important information again.
 9. Security and Privacy
 We prioritize the security and privacy of your conversations. Our app employs robust encryption measures to protect your data, ensuring that your messages remain private and secure.
+
+
+Extendable and Open Source
+One of the most exciting aspects of the Chatbox App is its open-source nature. The entire source code is available on GitHub, allowing developers to contribute, customize, and extend the app's functionality. This makes it an excellent choice for developers looking to learn and collaborate on exciting projects.
