@@ -12,3 +12,7 @@ Our app boasts a clean and intuitive user interface, making it easy for users of
 Personalize your chat experience by choosing from a variety of themes and color schemes. Make the app your own by selecting a theme that reflects your unique style and preferences.
 4. Multimedia Support
 Share more than just text; our app supports multimedia files such as images, videos, and documents. Collaborate effectively by sharing files directly within the chat interface.
+5. Group Chats
+Create and join group chats to facilitate collaboration and teamwork. Whether you're working on a project with colleagues or staying connected with friends, group chats make it easy to communicate with multiple people simultaneously.
+6. Notification Preferences
+Customize your notification settings to stay informed without being overwhelmed. Choose how and when you receive alerts, ensuring you never miss an important message.
