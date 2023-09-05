@@ -30,6 +30,6 @@ One of the most exciting aspects of the Chatbox App is its open-source nature. T
 Get Started
 Don't miss out on the opportunity to streamline your communication and collaboration. Download the Chatbox App today and experience the future of messaging. Join our active community on GitHub to get involved in its development and help shape the future of communication.
 
-GitHub Repository: Chatbox App on GitHub
+GitHub Repository: https://devoluwapelumi.github.io/Chatbox-App/
 
 Take control of your conversations and stay connected with the Chatbox App.
