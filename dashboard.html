@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drop a chat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="chatbox-wrapper">
+		<div class="chatbox-toggle">
+			<i class='bx bx-message-dots'></i>
+		</div>
+		<div class="chatbox-message-wrapper">
+			<div class="chatbox-message-header">
+				<div class="chatbox-message-profile">
+					<img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="" class="chatbox-message-image">
+					<div>
+						<h4 class="chatbox-message-name">Jonathan Doe</h4>
+						<p class="chatbox-message-status">online</p>
+					</div>
+				</div>
+				<div class="chatbox-message-dropdown">
+					<i class='bx bx-dots-vertical-rounded chatbox-message-dropdown-toggle'></i>
+					<ul class="chatbox-message-dropdown-menu">
+						<li>
+							<a href="#">Search</a>
+						</li>
+						<li>
+							<a href="#">Report</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="chatbox-message-content">
+				<h4 class="chatbox-message-no-message">You don't have message yet!</h4>
+				<!-- <div class="chatbox-message-item sent">
+					<span class="chatbox-message-item-text">
+						Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Quod, fugiat?
+					</span>
+					<span class="chatbox-message-item-time">08:30</span>
+				</div>
+				<div class="chatbox-message-item received">
+					<span class="chatbox-message-item-text">
+						Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Quod, fugiat?
+					</span>
+					<span class="chatbox-message-item-time">08:30</span>
+				</div> -->
+			</div>
+			<div class="chatbox-message-bottom">
+				<form action="#" class="chatbox-message-form">
+					<textarea rows="1" placeholder="Type message..." class="chatbox-message-input"></textarea>
+					<button type="submit" class="chatbox-message-submit"><i class='bx bx-send' ></i></button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+    <script type="module">
+        // Imports
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
+        import { getAuth, onAuthStateChanged,signOut } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js";
+        import { getDatabase,ref,set,onValue } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js";
+
+
+
+        const firebaseConfig = {
+          apiKey: "AIzaSyAH6X36Jl-5RPI9vpXrjQFTLvzKRGsutug",
+          authDomain: "second-9ea74.firebaseapp.com",
+          projectId: "second-9ea74",
+          storageBucket: "second-9ea74.appspot.com",
+          messagingSenderId: "462314352184",
+          appId: "1:462314352184:web:37a81382a6af2d0425c0cd",
+          databaseURL: "https://second-9ea74-default-rtdb.firebaseio.com"
+        };
+        // Global Variable Declarations
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+        const database = getDatabase();
+        let todoIndex = 0
+        // All my functions
+        onAuthStateChanged(auth,(user)=>{
+            console.log(user)
+            if(user){
+                disp.innerHTML = `<h1>Welcome, ${user.displayName}</h1>`
+            }else{
+                console.log("user is not signed in")
+                window.location.href = "index.html"
+            }
+        })
+        signOutBtn.addEventListener("click",()=>{
+           signOut(auth)
+           .then(()=>{
+             console.log("user iyaf sign out o")
+           })
+           .catch((err)=>{
+             console.log(err)
+           })
+        })
+
+        msgBtn.addEventListener("click",()=>{
+          let dbRef = ref(database,`chatStore/${todoIndex}`)
+          let date = new Date()
+          let chat = {
+            message : userInput.value,
+            time : date.toLocaleTimeString(),
+            username : auth.currentUser.displayName
+          }
+          set(dbRef,chat)
+        })
+
+        // Display information from the database
+        let chatRef = ref(database,"chatStore")
+        onValue(chatRef,(snapshot)=>{
+          displayMsg.innerHTML = ""
+          let data = snapshot.val()
+          console.log(data.length)
+          if(data){
+            todoIndex = data.length
+          }else{
+            todoIndex = 0 
+          }
+          data.map((eachItem)=>{
+            displayMsg.innerHTML += `
+            <h1>${eachItem.message}</h1>
+            <i>${eachItem.time}</i>
+            <p>${eachItem.username}</p>
+            `
+          })
+        })
+
+
+        // Work on the database so it does not replace.
+
+      </script>
+	
+    
+</body>
+</html>

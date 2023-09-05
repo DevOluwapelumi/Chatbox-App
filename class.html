@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Hello and Welcome to firebase 🔥🔥🔥</h1>
+    <button id="signInBtn">Sign In with GOOGLE</button>
+    <div id="disp"></div>
+    <script type="module">
+      //Imports
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+      import {
+        GoogleAuthProvider,
+        getAuth,
+        signInWithPopup,
+        sendEmailVerification,
+      } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+
+      // import {shoe} from "china"
+      //Firebase Configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyAH6X36Jl-5RPI9vpXrjQFTLvzKRGsutug",
+        authDomain: "second-9ea74.firebaseapp.com",
+        projectId: "second-9ea74",
+        storageBucket: "second-9ea74.appspot.com",
+        messagingSenderId: "462314352184",
+        appId: "1:462314352184:web:37a81382a6af2d0425c0cd",
+      };
+
+      //Global Variable declaration
+      const app = initializeApp(firebaseConfig);
+      const provider = new GoogleAuthProvider();
+      const auth = getAuth();
+      document.getElementById("signInBtn").addEventListener("click", () => {
+        // alert("Hello")
+        signInWithPopup(auth, provider)
+          .then((response) => {
+            console.log(response);
+            disp.innerHTML = `
+            <h1>
+              Welcome, ${response.user.displayName}
+            </h1>
+            <h1>
+              Welcome, ${response.user.email}
+            </h1>
+            <img src='${response.user.photoURL}'/>
+          `;
+            // sendEmailVerification(auth.currentUser).then(() => {
+            //   console.log("successful");
+            // });
+            window.location.href = "classdash.html"
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      });
+    </script>
+  </body>
+</html>

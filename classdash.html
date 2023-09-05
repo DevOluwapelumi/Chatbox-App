@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome to the dashboard</h1>
+    <div id="disp"></div>
+    <button id="signOutBtn">Sign Out</button>
+    <hr>
+    <input type="text" placeholder="Type Your Chat" id="userInput">
+    <button id="msgBtn">Send Message</button>
+    <hr>
+    <div id="displayMsg"></div>
+    <script type="module">
+        // Imports
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged,signOut } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+        import { getDatabase,ref,set,onValue } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+
+
+
+        const firebaseConfig = {
+          apiKey: "AIzaSyAH6X36Jl-5RPI9vpXrjQFTLvzKRGsutug",
+          authDomain: "second-9ea74.firebaseapp.com",
+          projectId: "second-9ea74",
+          storageBucket: "second-9ea74.appspot.com",
+          messagingSenderId: "462314352184",
+          appId: "1:462314352184:web:37a81382a6af2d0425c0cd",
+          databaseURL: "https://second-9ea74-default-rtdb.firebaseio.com"
+        };
+        // Global Variable Declarations
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+        const database = getDatabase();
+        let todoIndex = 0
+        // All my functions
+        onAuthStateChanged(auth,(user)=>{
+            console.log(user)
+            if(user){
+                disp.innerHTML = `<h1>Welcome, ${user.displayName}</h1>`
+            }else{
+                console.log("user is not signed in")
+                window.location.href = "index.html"
+            }
+        })
+        signOutBtn.addEventListener("click",()=>{
+           signOut(auth)
+           .then(()=>{
+             console.log("user iyaf sign out o")
+           })
+           .catch((err)=>{
+             console.log(err)
+           })
+        })
+
+        msgBtn.addEventListener("click",()=>{
+          let dbRef = ref(database,`chatStore/${todoIndex}`)
+          let date = new Date()
+          let chat = {
+            message : userInput.value,
+            time : date.toLocaleTimeString(),
+            username : auth.currentUser.displayName
+          }
+          set(dbRef,chat)
+        })
+
+        // Display information from the database
+        let chatRef = ref(database,"chatStore")
+        onValue(chatRef,(snapshot)=>{
+          displayMsg.innerHTML = ""
+          let data = snapshot.val()
+          console.log(data.length)
+          if(data){
+            todoIndex = data.length
+          }else{
+            todoIndex = 0 
+          }
+          data.map((eachItem)=>{
+            displayMsg.innerHTML += `
+            <h1>${eachItem.message}</h1>
+            <i>${eachItem.time}</i>
+            <p>${eachItem.username}</p>
+            `
+          })
+        })
+
+
+        // Work on the database so it does not replace.
+
+      </script>
+</body>
+</html>
