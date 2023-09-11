@@ -1,7 +1,6 @@
 # Chatbox-App
 The Chatbox App is a versatile and user-friendly chat application designed to streamline communication and collaboration among individuals, teams, or communities. 
 
-
 Key Features:
 
 1. Real-Time Messaging
