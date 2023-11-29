@@ -1,7 +1,7 @@
 # Chatbox-App
 The Chatbox App is a versatile and user-friendly chat application designed to streamline communication and collaboration among individuals, teams, or communities. 
 
-Key Features:
+##  Key Features:
 
 1. Real-Time Messaging
 The Chatbox App provides instant, real-time messaging capabilities, ensuring that users can engage in seamless and swift conversations. Messages are delivered instantly, making it ideal for both personal and professional communication.
@@ -23,10 +23,10 @@ Easily find past conversations, files, or specific messages with our robust sear
 We prioritize the security and privacy of your conversations. Our app employs robust encryption measures to protect your data, ensuring that your messages remain private and secure.
 
 
-Extendable and Open Source:
+##  Extendable and Open Source:
 One of the most exciting aspects of the Chatbox App is its open-source nature. The entire source code is available on GitHub, allowing developers to contribute, customize, and extend the app's functionality. This makes it an excellent choice for developers looking to learn and collaborate on exciting projects.
 
-Get Started
+##  Get Started
 Don't miss out on the opportunity to streamline your communication and collaboration. Download the Chatbox App today and experience the future of messaging. Join our active community on GitHub to get involved in its development and help shape the future of communication.
 
 GitHub Repository: https://devoluwapelumi.github.io/Chatbox-App/
